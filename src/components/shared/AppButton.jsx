@@ -3,13 +3,13 @@ const AppButton = ({ children, version, type, isDisabled }) => {
     <button type={type} disabled={isDisabled} className={`btn btn-${version}`}>
       {children}
     </button>
-  );
-};
+  )
+}
 
 AppButton.defaultProps = {
   version: 'primary',
   type: 'button',
-  isDisabled: false
+  isDisabled: false,
 }
 
-export default AppButton;
+export default AppButton
