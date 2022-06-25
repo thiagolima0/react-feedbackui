@@ -6,7 +6,7 @@ const FeedbackList = ({ feedbacks, handleDelete }) => {
   }
   return (
     <div className="feedback-list">
-      {feedbacks.map(feedback => (
+      {feedbacks.map((feedback) => (
         <FeedbackItem
           feedback={feedback}
           key={feedback.id}

@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useState } from 'react'
 
 function RatingSelect({ select }) {
-  const [selected, setSelected] = useState(10);
+  const [selected, setSelected] = useState(10)
 
   const handleChange = (e) => {
-    setSelected(Number(e.currentTarget.value));
-    select(Number(e.currentTarget.value));
-  };
-  const radioButtons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    setSelected(Number(e.currentTarget.value))
+    select(Number(e.currentTarget.value))
+  }
+  const radioButtons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
   return (
     <ul className="rating">
@@ -25,7 +25,7 @@ function RatingSelect({ select }) {
         </li>
       ))}
     </ul>
-  );
+  )
 }
 
-export default RatingSelect;
+export default RatingSelect

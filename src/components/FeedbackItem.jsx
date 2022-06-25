@@ -1,5 +1,5 @@
-import AppCard from "./shared/AppCard";
-import { FaTimes } from "react-icons/fa";
+import AppCard from './shared/AppCard'
+import { FaTimes } from 'react-icons/fa'
 
 const FeedbackItem = ({ feedback, handleDelete }) => {
   return (
@@ -10,7 +10,7 @@ const FeedbackItem = ({ feedback, handleDelete }) => {
       </button>
       <div className="text-display">{feedback.text}</div>
     </AppCard>
-  );
-};
+  )
+}
 
-export default FeedbackItem;
+export default FeedbackItem
