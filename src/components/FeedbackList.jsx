@@ -1,5 +1,4 @@
 import FeedbackItem from './FeedbackItem'
-import AppCard from './shared/AppCard'
 
 const FeedbackList = ({ feedbacks }) => {
   if (feedbacks.length === 0) {
@@ -13,7 +12,6 @@ const FeedbackList = ({ feedbacks }) => {
           key={feedback.id}
         />
       ))}
-      <AppCard>Hello</AppCard>
     </div>
   )
 }
