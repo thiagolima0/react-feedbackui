@@ -1,7 +1,7 @@
 import AppCard from "./shared/AppCard";
 import { FaTimes } from "react-icons/fa";
 
-const FeedbackItem = ({ feedback, handleDelete}) => {
+const FeedbackItem = ({ feedback, handleDelete }) => {
   return (
     <AppCard>
       <div className="num-display">{feedback.rating}</div>
