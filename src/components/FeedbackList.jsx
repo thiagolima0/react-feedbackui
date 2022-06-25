@@ -1,6 +1,6 @@
 import FeedbackItem from './FeedbackItem'
 
-const FeedbackList = ({ feedbacks }) => {
+const FeedbackList = ({ feedbacks, handleDelete }) => {
   if (feedbacks.length === 0) {
     return <p>No feedbacks yet</p>
   }
@@ -10,6 +10,7 @@ const FeedbackList = ({ feedbacks }) => {
         <FeedbackItem
           feedback={feedback}
           key={feedback.id}
+          handleDelete={handleDelete}
         />
       ))}
     </div>
