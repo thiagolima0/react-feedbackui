@@ -39,14 +39,13 @@ const FeedbackForm = () => {
     if (text.length > 10) {
       if (feedbackEdit.edit) {
         updateFeedback(feedbackEdit.item.id, { text, rating })
+      } else {
+        addFeedback({ text, rating })
       }
-    } else {
-      const id = new Date().getTime()
-      addFeedback({ id, text, rating })
-    }
 
-    setText('')
-    setRating(10)
+      setText('')
+      setRating(10)
+    }
   }
 
   return (

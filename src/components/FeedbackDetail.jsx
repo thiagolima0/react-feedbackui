@@ -1,30 +1,28 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import AppCard from './shared/AppCard'
-import FeedbakData from '../data/FeedbackData'
-import { useNavigate } from 'react-router-dom'
+import { useContext, useEffect } from 'react'
+import FeedbackContext from '../context/FeedbackContext'
 
 const FeedbackDetail = () => {
   const params = useParams()
   const navigate = useNavigate()
+  const { fetchFeedbackById, feedbacksDetail } = useContext(FeedbackContext)
+
+  useEffect(() => {
+    fetchFeedbackById(params.id)
+  }, [])
 
   const backHome = () => {
     navigate('/')
   }
 
-  const selectedFeedback = (id) => {
-    return FeedbakData.filter((item) => Number(item.id) === Number(id))[0]
-  }
-
-  const feedbackText = selectedFeedback(params.id)?.text
-  const feedbackRating = selectedFeedback(params.id)?.rating
-
   return (
     <div>
       <AppCard>
-        {feedbackText ? (
+        {feedbacksDetail.text ? (
           <>
-            <div className="num-display">{feedbackRating}</div>
-            <h1>{feedbackText}</h1>
+            <div className="num-display">{feedbacksDetail.rating}</div>
+            <h1>{feedbacksDetail.text}</h1>
           </>
         ) : (
           <h1>Not found</h1>

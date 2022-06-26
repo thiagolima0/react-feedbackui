@@ -131,6 +131,11 @@ input:focus {
   left: -10px;
 }
 
+.loading {
+  display: flex;
+  justify-content: center;
+}
+
 .detail,
 .close,
 .edit {
