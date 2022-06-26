@@ -1,12 +1,22 @@
 import AppCard from './shared/AppCard'
-import { FaTimes } from 'react-icons/fa'
+import { FaTimes, FaInfoCircle, FaEdit } from 'react-icons/fa'
+import { useContext } from 'react'
+import FeedbackContext from '../context/FeedbackContext'
 
-const FeedbackItem = ({ feedback, handleDelete }) => {
+const FeedbackItem = ({ feedback }) => {
+  const { deleteFeedback } = useContext(FeedbackContext)
+
   return (
     <AppCard>
       <div className="num-display">{feedback.rating}</div>
-      <button onClick={() => handleDelete(feedback.id)} className="close">
-        <FaTimes color="purple" />
+      <button onClick={() => deleteFeedback(feedback.id)} className="close">
+        <FaTimes size={20} color="purple" />
+      </button>
+      <button className="detail">
+        <FaEdit size={20} color="purple" />
+      </button>
+      <button className="edit">
+        <FaInfoCircle size={20} color="purple" />
       </button>
       <div className="text-display">{feedback.text}</div>
     </AppCard>

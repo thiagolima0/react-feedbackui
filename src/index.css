@@ -131,6 +131,7 @@ input:focus {
   left: -10px;
 }
 
+.detail,
 .close,
 .edit {
   position: absolute;
@@ -141,8 +142,16 @@ input:focus {
   border: none;
 }
 
+.close {
+  margin: 0;
+}
+
 .edit {
-  right: 40px;
+  margin: 0 30px;
+}
+
+.detail {
+  margin: 0 60px 0 60px;
 }
 
 .btn {

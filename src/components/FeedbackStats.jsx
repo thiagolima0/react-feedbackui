@@ -1,4 +1,9 @@
-const FeedbackStats = ({ feedbacks }) => {
+import { useContext } from 'react'
+import FeedbackContext from '../context/FeedbackContext'
+
+const FeedbackStats = () => {
+  const { feedbacks } = useContext(FeedbackContext)
+
   const feedbackAvg = (
     feedbacks.reduce((acc, cur) => acc + cur.rating, 0) / feedbacks.length
   )

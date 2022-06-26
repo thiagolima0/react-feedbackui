@@ -1,33 +1,39 @@
-import { useState } from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import AppHeader from './components/AppHeader'
-import FeedbakData from './data/FeedbackData'
 import FeedbackList from './components/FeedbackList'
 import FeedbackStats from './components/FeedbackStats'
 import FeedbackForm from './components/FeedbackForm'
+import AboutPage from './pages/AboutPage'
+import AboutIconLink from './components/AboutIconLink'
+import FeedbackDetail from './components/FeedbackDetail'
+import { FeedbackProvider } from './context/FeedbackContext'
 
 function App() {
-  const [feedbacks, setFeedbacks] = useState(FeedbakData)
-
-  const handleList = (id) => {
-    setFeedbacks(feedbacks.filter((item) => item.id !== id))
-  }
-
-  const handleAdd = (rating) => {
-    setFeedbacks([rating, ...feedbacks])
-  }
-
   return (
-    <>
-      <AppHeader />
-      <div className="container">
-        <FeedbackForm handleAdd={handleAdd} />
-        <FeedbackStats feedbacks={feedbacks} />
-        <FeedbackList
-          feedbacks={feedbacks}
-          handleDelete={(id) => handleList(id)}
-        />
-      </div>
-    </>
+    <FeedbackProvider>
+      <Router>
+        <AppHeader />
+        <div className="container">
+          <Routes>
+            <Route
+              exact
+              path="/"
+              element={
+                <>
+                  <FeedbackForm />
+                  <FeedbackStats />
+                  <FeedbackList />
+                </>
+              }
+            />
+
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="feedback/:id" element={<FeedbackDetail />} />
+          </Routes>
+          <AboutIconLink />
+        </div>
+      </Router>
+    </FeedbackProvider>
   )
 }
 

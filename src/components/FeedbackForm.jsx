@@ -2,8 +2,12 @@ import { useState } from 'react'
 import AppCard from './shared/AppCard'
 import AppButton from './shared/AppButton'
 import RatingSelect from './RatingSelect'
+import { useContext } from 'react'
+import FeedbackContext from '../context/FeedbackContext'
 
-const FeedbackForm = ({ handleAdd }) => {
+const FeedbackForm = () => {
+  const { addFeedback } = useContext(FeedbackContext)
+
   const [text, setText] = useState('')
   const [rating, setRating] = useState(10)
   const [btnDisabled, setBtnDisabled] = useState(true)
@@ -26,7 +30,7 @@ const FeedbackForm = ({ handleAdd }) => {
       e.preventDefault()
       const id = new Date().getTime()
 
-      handleAdd({ id, text, rating })
+      addFeedback({ id, text, rating })
 
       setText('')
       setRating(10)
