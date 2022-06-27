@@ -40,10 +40,12 @@ const FeedbackForm = () => {
       if (feedbackEdit.edit) {
         updateFeedback(feedbackEdit.item.id, { text, rating })
       }
-    } else {
-      const id = new Date().getTime()
-      addFeedback({ id, text, rating })
-    }
+
+      else {
+        const id = new Date().getTime()
+        addFeedback({ id, text, rating })
+      }
+    } 
 
     setText('')
     setRating(10)
